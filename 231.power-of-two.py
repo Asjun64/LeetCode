@@ -37,6 +37,17 @@ class Solution:
         :type n: int
         :rtype: bool
         """
+
+        # 位运算，最高位为1，且其余位为0，则为2的幂
+        if n <= 0:
+            return False
+        while n > 1:
+            if n&1:
+                return False
+            n >>= 1
+        return True
+
+        """
         if n == 0:
             return False
         i = 1
@@ -46,3 +57,4 @@ class Solution:
             return True
         else:
             return False
+        """

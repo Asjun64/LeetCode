@@ -46,3 +46,23 @@ class Solution:
         :type str: str
         :rtype: bool
         """
+        str = str.split()
+        if len(pattern) != len(str):
+            return False
+        d = {}
+        for i in range(len(str)):
+            m = pattern[i] in d
+            n = str[i] in d.values()
+            if m and n :
+                if d[pattern[i]] != str[i]:
+                    return False
+                else:
+                    continue
+            elif m or n:
+                return False
+            else:
+                d[pattern[i]] = str[i]
+        return True
+
+
+# print(Solution().wordPattern("abba", "dog cat cat dog"))
